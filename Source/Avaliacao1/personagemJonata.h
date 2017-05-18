@@ -24,6 +24,11 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
+
+	void SetCollected(int32 NewCollected);
+	int32 GetCollected();
+	void AddCollected();
 
 private:
 
@@ -35,6 +40,9 @@ private:
 	(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 		USpringArmComponent* CameraBoom;
 
+	UPROPERTY(EditAnywhere, Category = "Properties")
+		 int32 Collected;
+
 	void Move(float Value);
 
 	void MoveSides(float Value);
@@ -45,3 +53,4 @@ private:
 	
 	
 };
+

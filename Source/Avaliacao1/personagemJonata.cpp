@@ -90,4 +90,15 @@ void ApersonagemJonata::StopCrouch() {
 	UnCrouch();
 }
 
+void ApersonagemJonata::SetCollected(int32 NewCollected) {
+	Collected = NewCollected;
+	
+}
 
+int32 ApersonagemJonata::GetCollected() {
+	return Collected;
+	
+}
+void ApersonagemJonata::AddCollected() {
+	Collected++;
+}

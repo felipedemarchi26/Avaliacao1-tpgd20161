@@ -2,6 +2,7 @@
 
 #include "Avaliacao1.h"
 #include "ColetavelJonata.h"
+#include "personagemJonata.h"
 
 
 // Sets default values
