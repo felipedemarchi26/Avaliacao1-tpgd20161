@@ -21,7 +21,13 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	
+	
+	void SetNum(int32 NewNum);
+	int32 GetNum();
+	void AddNum();
 
+	
 private:
 
 	UPROPERTY(EditAnyWhere, Category = "Collision")
@@ -30,9 +36,17 @@ private:
 	UPROPERTY(EditAnyWhere, Category = "Mesh")
 		UStaticMeshComponent* MeshComp;
 
-	UFUNCTION()
-		void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
+	UPROPERTY(EditAnywhere, Category = "Num")
+		int32 Num;
+
+		UFUNCTION()
+	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	UFUNCTION()
+		void Posicao(AColetavelJonata*GetActorLocation);
 	
 	
 };
+
+
+
