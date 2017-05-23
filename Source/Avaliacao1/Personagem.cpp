@@ -40,14 +40,18 @@ APersonagem::APersonagem()
 void APersonagem::BeginPlay()
 {
 	Super::BeginPlay();
+	//Ativar o temporizador - Ariel Quint
+	GetWorldTimerManager().SetTimer(Timer, this,
+		&APersonagem::Tempo, 1.0f, true);
 
+	SetColected(0);
 }
 
 // Called every frame
 void APersonagem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 }
 
 // Called to bind functionality to input
@@ -57,7 +61,6 @@ void APersonagem::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 	PlayerInputComponent->BindAxis("Move", this, &APersonagem::Move);
 	PlayerInputComponent->BindAxis("Sides", this, &APersonagem::MoveSides);
-
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &APersonagem::StartCrouch);
@@ -87,4 +90,15 @@ void APersonagem::StartCrouch() {
 
 void APersonagem::StopCrouch() {
 	UnCrouch();
+}
+
+
+//Metodos de Get e Set
+int APersonagem::GetColected() { return Colected; }
+void APersonagem::SetColected(int NewColected) { Colected = NewColected; }
+
+void APersonagem::Tempo() {
+
+	TempoPercorrido++;
+
 }

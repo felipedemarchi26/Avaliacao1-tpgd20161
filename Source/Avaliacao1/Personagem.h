@@ -23,6 +23,12 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+
+	//Gets e Sets
+	int GetColected();
+	void SetColected(int NewColected);
+	float TempoPercorrido;
+
 	
 private:
 
@@ -39,5 +45,12 @@ private:
 	void StartCrouch();
 
 	void StopCrouch();
+
+	int Colected;
+
+	FTimerHandle Timer;
+
+	void Tempo();
+
 
 };
