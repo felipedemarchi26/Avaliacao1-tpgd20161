@@ -25,9 +25,24 @@ public:
 
 private:
 
-	UPROPERTY()
-	UStaticMeshComponent* ItemColetavel_Sandro;
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* MalhaEstatica;
 	
 	
+	UPROPERTY(EditAnywhere)
+		UCapsuleComponent* CollisionComp;
+	
+	void Movimentacao();
+	int direcao;
+	int girada;
+
+	void Rotacao();
+
+
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent,
+		AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse,
+		const FHitResult& Hit);
+
 	
 };

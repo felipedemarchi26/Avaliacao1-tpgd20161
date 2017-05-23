@@ -24,7 +24,6 @@ ApersonagemJonata::ApersonagemJonata()
 	if (SkeletalMesh.Succeeded()) {
 		GetMesh()->SetSkeletalMesh(SkeletalMesh.Object);
 	}
-	GetMesh()->SetCollisionProfileName("NoCollision");
 	GetMesh()->SetWorldLocation(FVector(0.0f, 0.0f, -80.0f));
 	GetMesh()->SetWorldScale3D(FVector(0.9f, 0.9f, 0.9f));
 	GetMesh()->SetAnimationMode(EAnimationMode::AnimationBlueprint);

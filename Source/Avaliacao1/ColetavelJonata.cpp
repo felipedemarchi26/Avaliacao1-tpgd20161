@@ -17,17 +17,16 @@ AColetavelJonata::AColetavelJonata()
 	CollisionComp->bGenerateOverlapEvents = true;
 	CollisionComp->SetCollisionProfileName("OverlapAllDynamic");
 	CollisionComp->OnComponentBeginOverlap.AddDynamic(this,
-		&AColetavelJonata::OnOverlapBegin);
-	CollisionComp->SetBoxExtent(FVector(0.6f, 0.6f, 0.6f));
-	CollisionComp->SetWorldLocation(FVector(0.0f, 0.0f, -10.0f));
+		&AColetavelJonata :: OnOverlapBegin);
 	RootComponent = CollisionComp;
 
-		
+	//CollisionComp->SetBoxExtent(FVector(15.0f, 15.0f, 15.0f));
+	//RootComponent = CollisionComp;
 
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>
 		(TEXT("MeshComp"));
 
-	MeshComp->SetCollisionProfileName("NoCollision");
+	MeshComp->SetCollisionProfileName("No Collision");
 	ConstructorHelpers::FObjectFinder<UStaticMesh> Mesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
 	
 	if (Mesh.Succeeded()) {
@@ -35,7 +34,7 @@ AColetavelJonata::AColetavelJonata()
 	}
 	
 
-	MeshComp->SetWorldScale3D(FVector(0.5f, 0.5f, 0.5f));
+	MeshComp->SetWorldScale3D(FVector(15.0f, 15.0f, 15.0f));
 	MeshComp->SetWorldLocation(FVector(0.0f, 0.0f, -10.0f));
 	MeshComp->SetupAttachment(RootComponent);
 
@@ -50,7 +49,6 @@ void AColetavelJonata::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	
 }
 
 // Called every frame
@@ -62,13 +60,13 @@ void AColetavelJonata::Tick(float DeltaTime)
 		
 void AColetavelJonata::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 	if (OtherActor != nullptr  && OtherActor->IsA(ApersonagemJonata::StaticClass())) {
-		Posicao();
-		UE_LOG(LogTemp, Warning, TEXT("FOI"));
+		ApersonagemJonata* personagemJonata = Cast<ApersonagemJonata>(OtherActor);
+		
 
 	}
 }
 
-void AColetavelJonata::Posicao(){
+void AColetavelJonata::Posicao(AColetavelJonata*GetActorLocation){
 
 		float X;
 		float Y;
@@ -77,9 +75,8 @@ void AColetavelJonata::Posicao(){
 		Y = FMath::FRandRange(-500.0f, 330.0f);
 
 
-		FVector NewPosiçao(X, Y, 60.0f);
-		SetActorLocation(NewPosiçao);
-		
+		FVector NewPosiçao(X, Y, 0.0f);
+
 		Num++;
 		
 
