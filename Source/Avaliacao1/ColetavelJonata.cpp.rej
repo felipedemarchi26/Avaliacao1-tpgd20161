@@ -1,0 +1,10 @@
+diff a/Source/Avaliacao1/ColetavelJonata.cpp b/Source/Avaliacao1/ColetavelJonata.cpp	(rejected hunks)
+@@ -75,7 +75,7 @@
+ 		Y = FMath::FRandRange(-500.0f, 330.0f);
+ 
+ 
+-		FVector NewPosi�ao(X, Y, 0.0f);
++		FVector NewPosi�ao(X, Y, 0.0f);
+ 
+ 		Num++;
+ 		
